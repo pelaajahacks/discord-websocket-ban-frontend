@@ -75,6 +75,15 @@ export default {
 .red {
   color: #e71b2c;
 }
+
+.signup {
+  margin-top: 14px;
+  font-family: GG Sans;
+  font-size: 20px;
+  color: #3391ff;
+  text-decoration: none;
+  margin-left: 10px;
+}
 </style>
 
 
@@ -99,7 +108,7 @@ export default {
         </div>
 
         <div class="signup">
-          Sign up
+          <RouterLink to="/signup" class="signup">Dont have an account? Sign up</RouterLink>
         </div>
         
       </div>

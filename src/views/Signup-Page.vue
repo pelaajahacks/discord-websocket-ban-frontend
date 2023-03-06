@@ -42,8 +42,8 @@ export default {
   margin: 0 20px;
 }
 
-.password {
-  margin-top: 15px;
+.not-last-child {
+  margin-bottom: 15px;
 }
 
 .box {
@@ -75,6 +75,15 @@ export default {
 .red {
   color: #e71b2c;
 }
+
+.login {
+  margin-top: 14px;
+  font-family: GG Sans;
+  font-size: 20px;
+  color: #3391ff;
+  text-decoration: none;
+  margin-left: 10px;
+}
 </style>
 
 
@@ -83,19 +92,32 @@ export default {
     <div class="main">
       <div class="login-form">
         <div class="title-text">
-          Sign up
+          Sign up for the tool
         </div>
         <div class="inputs">
           <div class="box">
+            <div class="email login-text">Email <span class="red">*</span></div>
+            <input_box input_type="password" class="inputbox not-last-child"></input_box>
+          </div>
+          <div class="box">
             <div class="username login-text">Username <span class="red">*</span></div>
-            <input_box input_type="text" class="inputbox"></input_box>
+            <input_box input_type="text" class="inputbox not-last-child"></input_box>
           </div>
           
           <div class="box">
             <div class="password login-text">Password <span class="red">*</span></div>
+            <input_box input_type="password" class="inputbox not-last-child"></input_box>
+          </div>
+
+          <div class="box">
+            <div class="hwid login-text">Hardware ID <span class="red">*</span></div>
             <input_box input_type="password" class="inputbox"></input_box>
           </div>
           
+        </div>
+
+        <div class="login">
+          <RouterLink to="/login" class="login">Meant to login? Login</RouterLink>
         </div>
         
       </div>
