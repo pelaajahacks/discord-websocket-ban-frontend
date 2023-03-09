@@ -1,6 +1,9 @@
 
 <script>
 import input_box from '../components/login/input-box.vue'
+import { remote } from 'electron';
+import os from 'os';
+import axios from 'axios';
 
 export default {
   setup() {
@@ -11,6 +14,28 @@ export default {
   },
   components: {
     input_box
+  },
+  methods: {
+    signup() {
+      const hwid = remote.getCurrentWindow().id + '_' + os.cpus()[0].serialNumber;
+      axios.post('https://api.example.com/data', {
+          hwid: hwid
+        })
+        .then(response => {
+          // handle the response here
+          console.log(response.data);
+        })
+        .catch(error => {
+          // handle errors here
+          console.error(error);
+        });
+      }
+  },
+
+  data() {
+    return {
+
+    }
   }
 }
 </script>
@@ -77,13 +102,42 @@ export default {
 }
 
 .login {
-  margin-top: 14px;
+  margin-top: 7px;
   font-family: GG Sans;
   font-size: 20px;
   color: #3391ff;
   text-decoration: none;
-  margin-left: 10px;
+
 }
+
+.signup-button {
+  text-align: right;
+  flex: 1 0 0;
+  margin-left: 15px;
+}
+
+#signup-btn {
+  width: 100%;
+  height: 50px;
+  border-radius: 4px;
+  border: none;
+  background-color: #3a01e1;
+  color: aliceblue;
+  cursor: pointer;
+  font-family: GG Sans;
+  font-size: 18px;
+}
+
+#signup-btn:active {
+  opacity: 0.6;
+}
+
+.signup-footer {
+  display: flex;
+  margin: 10px 20px 0 20px;
+}
+
+
 </style>
 
 
@@ -97,27 +151,38 @@ export default {
         <div class="inputs">
           <div class="box">
             <div class="email login-text">Email <span class="red">*</span></div>
-            <input_box input_type="password" class="inputbox not-last-child"></input_box>
+            <input_box input_type="email" class="inputbox not-last-child" v-model="email"></input_box>
           </div>
           <div class="box">
             <div class="username login-text">Username <span class="red">*</span></div>
-            <input_box input_type="text" class="inputbox not-last-child"></input_box>
+            <input_box input_type="text" class="inputbox not-last-child" v-model="username"></input_box>
           </div>
           
           <div class="box">
             <div class="password login-text">Password <span class="red">*</span></div>
-            <input_box input_type="password" class="inputbox not-last-child"></input_box>
+            <input_box input_type="password" class="inputbox not-last-child" v-model="password"></input_box>
           </div>
 
           <div class="box">
             <div class="hwid login-text">Hardware ID <span class="red">*</span></div>
-            <input_box input_type="password" class="inputbox"></input_box>
+            <input_box input_type="text" class="inputbox not-last-child" v-model="hwid"></input_box>
+          </div>
+
+          <div class="box">
+            <div class="invite login-text">Invite Code <span class="red" >*</span></div>
+            <input_box input_type="text" class="inputbox" v-model="invite"></input_box>
           </div>
           
         </div>
 
-        <div class="login">
-          <RouterLink to="/login" class="login">Meant to login? Login</RouterLink>
+        <div class="signup-footer">
+          <div class="login">
+            <RouterLink to="/login" class="login">Meant to log in? Log In</RouterLink>
+          </div>
+
+          <div class="signup-button">
+              <button id="signup-btn" >Sign up</button>
+            </div>
         </div>
         
       </div>

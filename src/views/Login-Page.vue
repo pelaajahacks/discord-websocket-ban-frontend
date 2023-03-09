@@ -79,22 +79,21 @@ export default {
 }
 
 .signup {
-  margin-top: 14px;
+  margin-top: 7px;
   font-family: GG Sans;
   font-size: 20px;
   color: #3391ff;
   text-decoration: none;
-  margin-left: 10px;
 }
 
 .login-button {
   text-align: right;
-  margin-right: 15px;
-  margin-top: 25px;
+  flex: 1 0 0;
+  margin-left: 15px;
 }
 
 #login-btn {
-  width: max(35%, min(8vmax, 50px));
+  width: 100%;
   height: 50px;
   border-radius: 4px;
   border: none;
@@ -107,6 +106,11 @@ export default {
 
 #login-btn:active {
   opacity: 0.6;
+}
+
+.login-footer {
+  display: flex;
+  margin: 10px 20px 0 20px;
 }
 </style>
 
@@ -136,8 +140,8 @@ export default {
           </div>
 
           <div class="login-button">
-            <button id="login-btn">Log in</button>
-          </div>
+              <button id="login-btn">Log in</button>
+            </div>
         </div>
         
 
