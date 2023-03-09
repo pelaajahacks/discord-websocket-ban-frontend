@@ -7,7 +7,7 @@ export default {
 
   },
   props: {
-    
+
   },
   components: {
     input_box
@@ -26,6 +26,7 @@ export default {
   height: 100vh;
   margin: 0px 3px;
 }
+
 .login-form {
   margin: auto auto;
   display: flex;
@@ -33,11 +34,12 @@ export default {
   background-color: #282b30;
   padding: 20px;
   border-radius: 10px;
-  
+
 }
 
 .inputs {
-  height: 100%; /* Set the height of the .inputs element to 100% */
+  height: 100%;
+  /* Set the height of the .inputs element to 100% */
   text-align: center;
   margin: 0 20px;
 }
@@ -48,7 +50,7 @@ export default {
 
 .box {
   width: max(100%, min(8vmax, 50px));
-  
+
 }
 
 .inputbox {
@@ -84,6 +86,28 @@ export default {
   text-decoration: none;
   margin-left: 10px;
 }
+
+.login-button {
+  text-align: right;
+  margin-right: 15px;
+  margin-top: 25px;
+}
+
+#login-btn {
+  width: max(35%, min(8vmax, 50px));
+  height: 50px;
+  border-radius: 4px;
+  border: none;
+  background-color: #3a01e1;
+  color: aliceblue;
+  cursor: pointer;
+  font-family: GG Sans;
+  font-size: 18px;
+}
+
+#login-btn:active {
+  opacity: 0.6;
+}
 </style>
 
 
@@ -99,23 +123,29 @@ export default {
             <div class="username login-text">Username <span class="red">*</span></div>
             <input_box input_type="text" class="inputbox"></input_box>
           </div>
-          
+
           <div class="box">
             <div class="password login-text">Password <span class="red">*</span></div>
             <input_box input_type="password" class="inputbox"></input_box>
           </div>
-          
-        </div>
 
-        <div class="signup">
-          <RouterLink to="/signup" class="signup">Dont have an account? Sign up</RouterLink>
+        </div>
+        <div class="login-footer">
+          <div class="signup">
+            <RouterLink to="/signup" class="signup">Dont have an account? Sign up</RouterLink>
+          </div>
+
+          <div class="login-button">
+            <button id="login-btn">Log in</button>
+          </div>
         </div>
         
+
+        
+
       </div>
     </div>
-    
-    
+
+
   </main>
-  
-  
 </template>
